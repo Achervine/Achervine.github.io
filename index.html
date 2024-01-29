@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamie Nagy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <script>
+        window.onscroll = function () {
+            var header = document.querySelector('.masthead');
+            var navbar = document.querySelector('.navbar');
+            var navbarPlaceholder = document.querySelector('.navbar-placeholder');
+            var headerHeight = header.offsetHeight;
+            var homeNavLink = document.querySelector('.nav-item a[href="#header"]'); // Reference to the "Home" nav-link
+
+            // Check if pageYOffset is greater than headerHeight
+            if (window.pageYOffset > headerHeight) {
+                if (!navbar.classList.contains('navbar-fixed')) {
+                    navbar.classList.add('navbar-fixed');
+                    navbar.style.top = '-70px'; // Start from -70px
+                    setTimeout(function () {
+                        navbar.style.top = '0';
+                    }, 100); // Delay for smooth appearance
+                    navbarPlaceholder.style.display = 'block'; // Show placeholder
+                }
+            } else {
+                navbar.classList.remove('navbar-fixed');
+                navbarPlaceholder.style.display = 'none'; // Hide placeholder
+
+                // Remove active class from all nav-links and add it to the "Home" nav-link
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                homeNavLink.classList.add('active');
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const sectionElements = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            function updateNavHighlight() {
+                let middleScreenPosition = window.pageYOffset + (window.innerHeight / 2);
+
+                sectionElements.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (middleScreenPosition >= sectionTop && middleScreenPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(navLink => {
+                            navLink.classList.remove('active');
+                            if (section.getAttribute('id') === navLink.getAttribute('href').substring(1)) {
+                                navLink.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateNavHighlight);
+            updateNavHighlight(); // Call on initial load
+        });
+
+    </script>
+
+
+
+    <header class="masthead bg-primary text-white text-center" id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+            id="ftco-navbar">
+            <div class="container" id="header-container">
+                <a class="navbar-brand" href="index.html">Jamie<span>.</span></a>
+                <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                    data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav nav ml-auto">
+                        <li class="nav-item"><a href="#header" class="nav-link active"><span>Home</span></a></li>
+                        <li class="nav-item"><a href="#intro" class="nav-link"><span>Intro</span></a></li>
+                        <li class="nav-item"><a href="#portfolio" class="nav-link"><span>Portfolio</span></a></li>
+                        <li class="nav-item"><a href="#my-skills" class="nav-link"><span>Skills</span></a></li>
+                        <li class="nav-item"><a href="#services" class="nav-link"><span>Services</span></a></li>
+                        <li class="nav-item"><a href="#contact-me" class="nav-link"><span>Contact</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="navbar-placeholder"></div>
+        <div class="container d-flex align-items-center flex-column" id="home-screen">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar my-5" src="./ME.jpeg" alt="...">
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Jamie Nagy</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Full Stack & Blockchain Developer</p>
+        </div>
+    </header>
+    <section class="page-section portfolio" id="intro">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-5 mb-0">Inrtoduction</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star" aria-hidden="true"
+                        focusable="false" data-prefix="fas" data-icon="star" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                        </path>
+                    </svg><!-- <i class="fas fa-star"></i> Font Awesome fontawesome.com --></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="intro-123">
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
+                            <path
+                                d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                        </svg>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">Education</h3>
+                    <p>I'm about to earn my Associate Degree this Spring in CUNY Queensborough Community College. I
+                        maintain a 3.9 GPA with Dean's list while working to support myself. I look forward to making a
+                        difference in the industry!</p>
+                </div>
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-pc-display" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0M9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5M1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2z" />
+                        </svg>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">Skills</h3>
+                    <p>I demonstrate great capability for full-stack and blockchain web development, with a hostable
+                        large-scale web app EchoReads entirely developed by myself. I'm continuously learning new
+                        on-demand technologies!</p>
+                </div>
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5" />
+                        </svg>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">Experience</h3>
+                    <p>I've developed many beautiful websites and helped others with various projects. In addition, I'm
+                        experienced
+                        and familiar with many third-party services and solutions like AWS, Azure and GCP. I've also
+                        worked as a medical front desk, waiter and tutor during college. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-5 mb-0">Portfolio</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star" aria-hidden="true"
+                        focusable="false" data-prefix="fas" data-icon="star" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                        </path>
+                    </svg><!-- <i class="fas fa-star"></i> Font Awesome fontawesome.com --></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="portfolio-disclaimer">
+                <h4>All projects are entirely developed by myself and are 100% my original work</h4>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+                <!-- Portfolio Item 1-->
+                <div class="row">
+                    <!-- Portfolio Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5 portfolio-item">
+                        <div class="portfolio-block">
+                            <img class="img-fluid portfolio-img" src="./echoreads.png" alt="StorySphere">
+                            <h3 class="portfolio-title">EchoReads</h3>
+                            <p class="portfolio-intro">A production-level articles sharing web platform built with
+                                React, Node, Express and PostgreSQL.<br /> <span class="storysphere-span">Available to
+                                    host on
+                                    the Internet upon request</span>
+                            </p>
+                            <div class="portfolio-external-links">
+                                <a href="./project1.html" class="portfolio-link">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 (Repeat as needed)-->
+                    <!-- ... -->
+                </div>
+                <!-- Portfolio Item 2 (Repeat as needed)-->
+                <!-- ... -->
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section class="page-section" id="my-skills">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-5 mb-0">My Skills</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Skills Categories -->
+            <div class="skills-category">
+                <h3 class="category-title">Frontend Development</h3>
+                <div class="row">
+                    <!-- Skill Item -->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fab fa-react skill-icon"></i>
+                            <h4 class="skill-title">React</h4>
+                            <p class="skill-description">Proficient in crafting dynamic user interfaces with React,
+                                leveraging the full potential of hooks for state management
+                                and side effects. Skilled in implementing optimized rendering logic and integrating a
+                                suite of React-specific tools and
+                                libraries to enhance functionality and user experience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fab fa-vuejs skill-icon"></i>
+                            <h4 class="skill-title">Vue.js</h4>
+                            <p class="skill-description">
+                                Proficient in Vue.js for developing dynamic and reactive web interfaces. Skilled in
+                                leveraging Vue's
+                                component-based architecture and its ecosystem, including Vuex for state management and
+                                Vue Router for
+                                client-side routing. Committed to writing clean, efficient, and scalable code that
+                                enhances user experience and
+                                performance.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Repeat for other Frontend skills -->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <div class="skill-icons">
+                                <i class="fab fa-html5 skill-icon"></i>
+                                <i class="fab fa-css3-alt skill-icon"></i>
+                                <i class="fab fa-js-square skill-icon"></i>
+                            </div>
+                            <h4 class="skill-title">HTML, CSS, JS(ES6+)</h4>
+                            <p class="skill-description">
+                                Proficient in the core technologies of frontend development - HTML5, CSS3, and
+                                JavaScript (ES6+). Expertise
+                                in crafting semantic HTML structures, creating modular and responsive CSS, and writing
+                                efficient JavaScript.
+                                Experienced in developing dynamic web applications with a focus on user experience,
+                                performance, and
+                                cross-browser compatibility.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fab fa-bootstrap skill-icon"></i>
+                            <h4 class="skill-title">Bootstrap</h4>
+                            <p class="skill-description">
+                                Highly proficient in utilizing Bootstrap for rapid UI development. Skilled in leveraging
+                                its responsive grid
+                                system and pre-designed components to create visually appealing and mobile-first web
+                                designs. Adept at
+                                customizing Bootstrap themes to align with specific design requirements and brand
+                                identity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-globe skill-icon"></i>
+                            <h4 class="skill-title">Cross-Browser Compatibility</h4>
+                            <p class="skill-description">
+                                Skilled in developing web applications with a focus on cross-browser compatibility.
+                                Adept at writing robust code
+                                that ensures consistent functionality and user experience across various browsers and
+                                platforms. Experienced in
+                                using tools and methodologies to test and debug browser-specific issues, ensuring
+                                seamless access for all users.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-universal-access skill-icon"></i>
+                            <h4 class="skill-title">Web Accessibility</h4>
+                            <p class="skill-description">
+                                Committed to creating inclusive web experiences by adhering to Web Content Accessibility
+                                Guidelines (WCAG).
+                                Proficient in implementing accessible design principles to ensure that websites are
+                                user-friendly for people
+                                with various disabilities. Knowledgeable in using semantic HTML, ARIA roles, and
+                                assistive technologies to
+                                enhance accessibility and comply with legal standards.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <div class="skill-icons">
+                                <i class="fab fa-git-alt skill-icon"></i>
+                                <i class="fab fa-github skill-icon"></i>
+                            </div>
+                            <h4 class="skill-title">Version Control - Git & GitHub</h4>
+                            <p class="skill-description">
+                                Proficient in using Git for version control, adept at managing and tracking changes in
+                                source code during
+                                software development. Experienced in branching, merging, and resolving conflicts to
+                                maintain code integrity and
+                                facilitate collaborative workflows. Skilled in leveraging GitHub for remote repository
+                                management, pull
+                                requests, and code reviews, enhancing team collaboration and code quality. Knowledgeable
+                                in GitHub Actions for
+                                CI/CD pipelines, automating build and deployment processes for efficient software
+                                delivery.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <div class="skill-icons">
+                                <i class="fab fa-js skill-icon"></i>
+                                <i class="fab fa-npm skill-icon"></i>
+                            </div>
+                            <h4 class="skill-title">Webpack & NPM</h4>
+                            <p class="skill-description" id="frontend-build-tools-des">
+                                Skilled in utilizing Webpack for efficient bundling and optimization of frontend assets,
+                                enhancing load times
+                                and overall performance. Proficient in configuring Webpack for various development
+                                environments, including
+                                loaders and plugins for CSS pre-processing, image optimization, and code splitting.
+                                Expert in using NPM for
+                                package management, script automation, and dependency control, ensuring seamless
+                                integration and versioning of
+                                project components. Committed to optimizing build workflows to facilitate rapid,
+                                error-free development cycles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3 class="category-title">Backend Development</h3>
+                <div class="row">
+                    <!-- Skill Item -->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fab fa-node skill-icon"></i>
+                            <h4 class="skill-title">Node.js & Express.js</h4>
+                            <p class="skill-description">
+                                Specialized in backend development with Node.js and Express.js, proficient in crafting
+                                scalable, high-performance
+                                server-side solutions. Experienced in leveraging Node.js's event-driven architecture to
+                                build efficient applications,
+                                seamlessly integrating a wide array of libraries and packages for enhanced
+                                functionality. Adept at using Express.js for
+                                streamlined routing, middleware management, and robust handling of HTTP requests and
+                                responses. Skilled in creating
+                                RESTful APIs, handling asynchronous operations, and integrating databases and
+                                authentication systems.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Repeat for other Backend skills -->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-tools skill-icon"></i>
+                            <h4 class="skill-title">API Design & Development</h4>
+                            <p class="skill-description">
+                                Proficient in API Design & Development, specializing in the creation of RESTful and
+                                GraphQL API architectures.
+                                Well-versed in integrating a wide array of third-party services, including Google APIs
+                                and OpenAI's offerings, with a
+                                keen understanding of their documentation and use cases. Experienced in leveraging tools
+                                such as Swagger for API
+                                documentation and Postman for testing and debugging, ensuring APIs are both reliable and
+                                easy to consume. Committed to
+                                following best practices in security, data handling, and endpoint optimization to
+                                deliver high-quality, scalable API
+                                solutions that enhance application functionality and user experience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <div class="skill-icon" id="postgresql-icon-div">
+                                <img src="./postgresql.png" alt="PostgreSQL" style="height: 4rem; width: auto;">
+                            </div>
+                            <h4 class="skill-title">PostgreSQL & PgAdmin 4</h4>
+                            <p class="skill-description">
+                                Experienced in harnessing the capabilities of PostgreSQL for robust database solutions.
+                                Proficient in architecting and
+                                administrating complex data schemas with a focus on performance optimization and
+                                transactional integrity. Utilizes
+                                PgAdmin 4 for intuitive database management, enabling effective control over database
+                                functionalities and insightful
+                                data analysis. Dedicated to employing PostgreSQL's sophisticated features to construct
+                                resilient and scalable back-end
+                                architectures that support high-volume data transactions and complex query operations.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <div class="skill-icon" id="mongodb-icon-div">
+                                <img src="./mongodb.png" alt="MongoDB" style="height: 4rem; width: auto;">
+                            </div>
+                            <h4 class="skill-title">MongoDB & Atlas</h4>
+                            <p class="skill-description">
+                                Skilled in leveraging MongoDB for the development of high-performance, scalable
+                                databases. Expertise in
+                                utilizing MongoDB Atlas for cloud database management, ensuring seamless deployment, and
+                                maintaining high
+                                availability. Proficient in schema design, data aggregation, and implementing security
+                                best practices with
+                                MongoDB to enhance application efficiency and reliability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-user-shield skill-icon"></i>
+                            <h4 class="skill-title">Authentication & Authorization</h4>
+                            <p class="skill-description">
+                                Proficient in implementing robust authentication and authorization mechanisms,
+                                specializing in the use of JWT and OAuth
+                                2.0 protocols for secure, scalable user authentication. Skilled in integrating
+                                Passport.js for streamlined
+                                authentication strategies, including the management of sessions and cookies to maintain
+                                user state and security across
+                                web sessions. Experienced in leveraging popular third-party OAuth services, such as
+                                Google and Facebook, to provide
+                                users with reliable and convenient sign-in options, enhancing the user experience while
+                                adhering to best practices in
+                                security and data privacy.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-cogs skill-icon"></i>
+                            <h4 class="skill-title">Microservices Architecture</h4>
+                            <p class="skill-description">
+                                Proficient in Microservices Architecture, with a focus on building scalable and
+                                independently deployable services. Adept
+                                at decomposing complex applications into smaller, loosely coupled services, each running
+                                in its own process and
+                                communicating with lightweight mechanisms, often an HTTP resource API. Experienced in
+                                orchestrating microservices to
+                                work cohesively, ensuring fault tolerance and employing containerization technologies
+                                like Docker and Kubernetes for
+                                consistent deployment and scalability. Committed to leveraging the microservices
+                                approach to enable the continuous
+                                delivery/deployment of large, complex applications and an architecture that evolves over
+                                time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-cloud skill-icon"></i>
+                            <h4 class="skill-title">Cloud Services</h4>
+                            <p class="skill-description">
+                                Skilled in utilizing cloud services to enhance application performance, scalability, and
+                                reliability. Proficient in
+                                deploying and managing applications across various cloud platforms, including AWS,
+                                Azure, and Google Cloud. Familiar
+                                with a broad range of cloud services, such as compute instances, storage solutions, and
+                                managed databases, to create
+                                flexible, resilient architectures. Experienced in leveraging cloud-native technologies
+                                to build and maintain modern
+                                applications that take full advantage of cloud capabilities and services. Dedicated to
+                                implementing cost-effective and
+                                secure cloud solutions that empower businesses to innovate and grow in a dynamic digital
+                                landscape.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-shield-alt skill-icon"></i>
+                            <h4 class="skill-title">Security Practices</h4>
+                            <p class="skill-description">
+                                Highly skilled in implementing advanced security practices for backend development,
+                                ensuring the integrity and
+                                protection of web applications. Expertise includes securing server-client communication,
+                                safeguarding against SQL
+                                injection, XSS, CSRF attacks, and ensuring data encryption in transit and at rest.
+                                Proficient in conducting thorough
+                                security audits, vulnerability assessments, and implementing server hardening
+                                techniques. Experienced in setting up
+                                secure API endpoints, managing CORS policies, and utilizing HTTPS protocols
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for other categories -->
+            <div class="skills-category">
+                <h3 class="category-title">Blockchain Development</h3>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-network-wired skill-icon"></i>
+                            <h4 class="skill-title">Decentralized Applications (DApps)</h4>
+                            <p class="skill-description">
+                                Specialized in Decentralized Application (DApp) development, crafting innovative
+                                solutions on blockchain platforms.
+                                Expertise encompasses building user-friendly, secure, and scalable DApps, designed to
+                                operate autonomously with smart
+                                contracts as the backend logic. Proficient in integrating DApps with various blockchain
+                                networks to ensure transparency,
+                                immutability, and decentralized control, enhancing user trust and engagement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-file-contract skill-icon"></i>
+                            <h4 class="skill-title">Smart Contract Development</h4>
+                            <p class="skill-description">
+                                Proficient in Smart Contract Development, leveraging languages like Solidity and tools
+                                such as Truffle and Remix.
+                                Expertise in writing, testing, and deploying smart contracts on platforms like Ethereum
+                                and Binance Smart Chain. Focuses
+                                on creating robust, secure, and efficient contracts for a variety of use cases including
+                                DeFi, NFTs, and DAOs. Ensures
+                                that smart contracts are optimized for performance and gas efficiency, and adheres to
+                                best practices for security and
+                                upgradability. Dedicated to harnessing the power of smart contracts to build trustless,
+                                automated, and transparent
+                                systems.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-project-diagram skill-icon"></i>
+                            <h4 class="skill-title">Blockchain Protocols & Platforms</h4>
+                            <p class="skill-description" id="blockchain-protocols">
+                                Expert in a diverse range of blockchain protocols and platforms, with a keen ability to
+                                select and implement the most
+                                suitable technology based on project needs. Proficient in Ethereum for smart contract
+                                functionality and decentralized
+                                applications, Binance Smart Chain for its high throughput and low transaction costs, and
+                                Cardano for its unique
+                                Ouroboros proof-of-stake technology. Also experienced with Polkadot's interoperability
+                                and parallel chain architecture.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="skill-block">
+                            <i class="fas fa-coins skill-icon"></i>
+                            <h4 class="skill-title">Cryptocurrency and Token Development</h4>
+                            <p class="skill-description">
+                                Skilled in the design and development of cryptocurrencies and digital tokens, with
+                                particular expertise in
+                                Ethereum-based ERC-20 tokens, widely recognized for their utility in a variety of
+                                applications including ICOs and
+                                decentralized finance (DeFi). Also proficient in ERC-721 (NFT) token standards, playing
+                                a pivotal role in the creation
+                                of unique digital assets for use in gaming, art, and digital ownership. Experienced in
+                                developing tokens with specific
+                                functionalities such as governance, staking, and burn mechanisms, ensuring that they
+                                align with the project's tokenomics
+                                and overall strategy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <hr />
+
+    <section class="page-section" id="services">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-5 mb-0">Services</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 mb-5">
+                    <div class="service-item mx-auto">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="service-title">Web Development</h4>
+                        <p class="service-description">Design and develop hostable secure websites, ranging from small
+                            static pages to full-stack large-scale projects.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="service-item mx-auto">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4 class="service-title">Utilize Cloud Services</h4>
+                        <p class="service-description">Assist with cloud services like AWS, GCP, Azure to efficiently
+                            host,
+                            maintain businesses' web apps, and minimize costs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="service-item mx-auto">
+                        <div class="service-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h4 class="service-title">Game Development</h4>
+                        <p class="service-description">Develop beautiful and interactive H5 games based on unique and
+                            applicable ideas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+    <section class="page-section" id="contact-me">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mt-5 mb-0">Contact Me</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead mb-5">Reach out if you're looking for someone to turn complex ideas into elegant
+                        solutions.</p>
+                    <!-- Contact Information -->
+                    <div class="contact-info d-flex justify-content-center">
+                        <!-- Address -->
+                        <div class="contact-item d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <div>
+                                <p class="address">Queens, NY, USA</p>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="contact-item d-flex align-items-center">
+                            <i class="fas fa-mobile-alt mr-3"></i>
+                            <div>
+                                <p class="phone">929-484-2089</p>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="contact-item d-flex align-items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <div>
+                                <p class="email">yuqiye093@gmail.com<br><span
+                                        class="text-small text-muted">(Preferred)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://github.com/HoneyMeat"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://linkedin.com/in/yourusername"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
