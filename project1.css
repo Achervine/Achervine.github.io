@@ -165,6 +165,35 @@ p {
     }
 }
 
+/* Video Intro Link Styling */
+.video-intro-link {
+    display: inline-block;
+    /* Allows applying padding and margin */
+    background-color: #12859e;
+    /* Matching the color scheme */
+    color: #ffffff;
+    /* White text color for contrast */
+    padding: 10px 15px;
+    /* Adequate padding for clickability */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    text-decoration: none;
+    /* Remove the default underline */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.video-intro-link:hover {
+    background-color: #0d7086;
+    /* Slightly darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Larger shadow for hover effect */
+    color: #ffc107;
+    /* Optional: Change text color on hover for more emphasis */
+}
+
 /* ... Your existing styles ... */
 
 /* Responsive design adjustments */
