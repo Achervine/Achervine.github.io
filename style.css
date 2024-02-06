@@ -403,6 +403,24 @@ body.navbar-fixed-padding {
 .fa-gamepad {
     color: #6f42c1;
 }
+.fa-brain {
+    color: #5DADE2;
+}
+.fa-robot {
+    color: #58D68D;
+}
+.fa-desktop {
+    color: #9B59B6;
+}
+.fa-chart-area {
+    color: #E74C3C;
+}
+.fa-sitemap {
+    color: #F39C12;
+}
+.fa-code-branch {
+    color: #27AE60;
+}
 
 #services {
     padding: 1rem 0;
