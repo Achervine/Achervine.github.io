@@ -58,7 +58,7 @@
 }
 .text-bg-primary {
     color: #fff !important;
-    background-color: #D3E0DC !important;
+    background-color: #FDBF60 !important;
 }
 .resume-button {
     display: flex;
@@ -420,6 +420,35 @@ body.navbar-fixed-padding {
 }
 .fa-code-branch {
     color: #27AE60;
+}
+
+.resume-download-container {
+    margin-top: 40px;
+    padding-bottom: 60px;
+    /* Adjust spacing at the bottom of the section */
+}
+
+.resume-download-btn {
+    font-weight: 600;
+    background-color: #ff6a00;
+    /* Primary color for the button */
+    border: none;
+    color: #ffffff;
+    padding: 10px 30px;
+    border-radius: 25px;
+    /* Rounded corners for the button */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.resume-download-btn:hover,
+.resume-download-btn:focus {
+    background-color: #e55d00;
+    /* Darker shade for hover state */
+    color: #ffffff;
+    transform: translateY(-2px);
+    /* Slight lift effect on hover */
+    text-decoration: none;
+    /* Remove underline from the link */
 }
 
 #services {
