@@ -93,7 +93,9 @@
 .portfolio-img {
     max-width: 100%;
     height: auto;
+    max-height: 100px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .portfolio-title {
@@ -559,6 +561,40 @@ body.navbar-fixed-padding {
     /* Spacing between text and button */
     text-align: center;
     /* Center align text for consistency */
+}
+
+/* Ensure the .row that contains portfolio items is a flex container */
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* This makes each portfolio item flex and allows them to have equal height */
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This makes the content inside each portfolio item flex and pushes the links to the bottom */
+.portfolio-block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+/* Pushes the external links to the bottom of the card */
+.portfolio-external-links {
+    margin-top: auto;
+    padding: 20px 0;
+    /* Adjust padding as needed to ensure spacing */
+}
+
+/* Add some padding below each portfolio intro to ensure spacing is consistent */
+.portfolio-intro {
+    flex-grow: 1;
+    /* Allows the intro text to expand and push the links down */
+    padding-bottom: 20px;
+    /* Adjust this value based on your content and design */
 }
 
 
