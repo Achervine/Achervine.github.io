@@ -442,7 +442,7 @@ body.navbar-fixed-padding {
 
 .resume-download-btn:hover,
 .resume-download-btn:focus {
-    background-color: #e55d00;
+    background-color: #e55d00 !important;
     /* Darker shade for hover state */
     color: #ffffff;
     transform: translateY(-2px);
@@ -547,6 +547,20 @@ body.navbar-fixed-padding {
 .divider-custom-icon {
     color: #ff6a00;
 }
+
+.resume-reminder-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* A clean, professional font */
+    font-size: 1rem;
+    /* Appropriate text size */
+    color: #333;
+    /* Dark color for readability */
+    margin-bottom: 1.5rem;
+    /* Spacing between text and button */
+    text-align: center;
+    /* Center align text for consistency */
+}
+
 
 /* Adjustments for mobile screens */
 @media (max-width: 991.98px) {
