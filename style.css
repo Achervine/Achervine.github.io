@@ -307,7 +307,10 @@ body.navbar-fixed-padding {
 }
 
 #postgresql-icon-div,
-#mongodb-icon-div {
+#mongodb-icon-div,
+#flask-icon-div,
+#django-icon-div,
+#apps-icon-div {
     display: flex;
     /* This will allow you to align items inside the div */
     align-items: flex-start;
@@ -422,6 +425,15 @@ body.navbar-fixed-padding {
 }
 .fa-code-branch {
     color: #27AE60;
+}
+.service-icon > .fa-bots {
+    color: #5f6a7d;
+}
+.service-icon > .fa-medapps {
+    color: #e6c41b;
+}
+.service-icon > .fa-codepen {
+    color: #008080;
 }
 
 .resume-download-container {
