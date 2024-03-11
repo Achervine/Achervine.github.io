@@ -13,6 +13,8 @@
     align-items: center;
     justify-content: center;
 }
+
+
 .divider-custom {
     margin: 1.25rem 0 1.5rem;
     width: 100%;
@@ -30,7 +32,7 @@
     border-color: #2c3e50;
 }
 .masthead .divider-custom-line {
-    background-color: rgb(123, 124, 124);
+    background-color: rgb(28, 30, 32);
 }
 /* Left line */
 .divider-custom .divider-custom-line:first-child {
@@ -49,7 +51,8 @@
     font-size: 50px;
 }
 .masthead-subheading {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 500;
 }
 .feature-icon {
     width: 4rem;
@@ -471,7 +474,7 @@ body.navbar-fixed-padding {
 }
 
 #home-screen {
-    color:#dc7c4c;
+    color:#232121;
 }
 
 .service-item {
@@ -556,6 +559,9 @@ body.navbar-fixed-padding {
 
 .social-icon:hover {
     color: #ff6a00;
+}
+.masthead .divider-custom-icon {
+    color: rgb(10, 84, 95);
 }
 
 .divider-custom-icon {
