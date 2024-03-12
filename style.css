@@ -61,7 +61,7 @@
 }
 .text-bg-primary {
     color: #fff !important;
-    background-color: #FDBF60 !important;
+    background-color: #d49393 !important;
 }
 .resume-button {
     display: flex;
@@ -337,7 +337,7 @@ body.navbar-fixed-padding {
 }
 
 .portfolio-link {
-    color:#155a92bd;
+    color:#0196e3;
 }
 
 .fa-react {
@@ -447,7 +447,7 @@ body.navbar-fixed-padding {
 
 .resume-download-btn {
     font-weight: 600;
-    background-color: #ff6a00;
+    background-color: #FF8080;
     /* Primary color for the button */
     border: none;
     color: #ffffff;
@@ -603,16 +603,21 @@ body.navbar-fixed-padding {
 /* Pushes the external links to the bottom of the card */
 .portfolio-external-links {
     margin-top: auto;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
     /* Adjust padding as needed to ensure spacing */
 }
 
 /* Add some padding below each portfolio intro to ensure spacing is consistent */
-.portfolio-intro {
+.portfolio-intro,
+.mbr-text {
     flex-grow: 1;
     /* Allows the intro text to expand and push the links down */
     padding-bottom: 20px;
     /* Adjust this value based on your content and design */
+}
+
+#intro-123 .feature.col {
+    padding: 0 35px;
 }
 
 
