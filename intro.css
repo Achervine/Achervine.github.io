@@ -4,6 +4,7 @@
     padding: 1rem;
     border-radius: 3rem;
     background: #f8f9fc;
+    display: flex;
     height: 100%; 
     flex-grow: 1;
     flex-flow: column nowrap;
