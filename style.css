@@ -459,7 +459,7 @@ body.navbar-fixed-padding {
 
 .resume-download-btn:hover,
 .resume-download-btn:focus {
-    background-color: #e55d00 !important;
+    background-color: #d14e6b !important;
     /* Darker shade for hover state */
     color: #ffffff;
     transform: translateY(-2px);
@@ -467,6 +467,7 @@ body.navbar-fixed-padding {
     text-decoration: none;
     /* Remove underline from the link */
 }
+
 
 #services {
     padding: 1rem 0;
@@ -569,17 +570,34 @@ body.navbar-fixed-padding {
 }
 
 .resume-reminder-text {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Pacifico', cursive;
     /* A clean, professional font */
     font-size: 1rem;
     /* Appropriate text size */
-    color: #333;
+    color: #944E63;
     /* Dark color for readability */
     margin-bottom: 1.5rem;
+    font-weight: bold;
     /* Spacing between text and button */
     text-align: center;
+    animation: pulse 2s infinite;
     /* Center align text for consistency */
 }
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 
 /* Ensure the .row that contains portfolio items is a flex container */
 .portfolio-grid {
